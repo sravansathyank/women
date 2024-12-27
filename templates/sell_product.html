@@ -1,0 +1,213 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1.5s ease-in-out; /* Page load animation */
+            background-image: url("{% static 'images/pic2.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1.5s ease-in-out; /* Content slide-in animation */
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        .quote {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+            animation: fadeSlideIn 2s ease-in-out; /* Quote animation */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color:rgb(16, 16, 16);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Button hover animation */
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background-color:rgb(86, 9, 26);
+        }
+
+        .product-list {
+            margin-top: 20px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out; /* Product submission animation */
+        }
+
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sell Your Products</h1>
+        <p class="quote">"Empower yourself by showcasing your unique products to the world!"</p>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Product</button>
+            <button onclick="location.href='{% url 'quote_page' %}'">Back</button>
+        </form>
+
+        <div id="product-list" class="product-list"></div>
+    </div>
+
+    <script>
+        const productList = document.getElementById('product-list');
+
+        function submitProduct() {
+            // Get product details
+            const name = document.getElementById('product-name').value;
+            const description = document.getElementById('product-description').value;
+            const price = document.getElementById('product-price').value;
+            const contact = document.getElementById('contact-details').value;
+            const imageFile = document.getElementById('product-image').files[0];
+
+            if (!imageFile) {
+                alert("Please upload a product image.");
+                return;
+            }
+
+            // Create product element
+            const product = document.createElement('div');
+            product.className = 'product';
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const productHTML = `
+                    <img src="${e.target.result}" alt="Product Image">
+                    <div class="product-details">
+                        <h3>${name}</h3>
+                        <p>${description}</p>
+                        <p><strong>Price:</strong> $${price}</p>
+                        <p><strong>Contact:</strong> ${contact}</p>
+                    </div>
+                `;
+                product.innerHTML = productHTML;
+                productList.appendChild(product);
+
+                // Clear form
+                document.getElementById('product-form').reset();
+            };
+            reader.readAsDataURL(imageFile);
+        }
+    </script>
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product">
+                <img src="{{ product.imageFile.url }}" alt="Product Image" width="100">
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p><strong>Price:</strong> ${{ product.price }}</p>
+                    <p><strong>Contact:</strong> {{ product.contact }}</p>
+                    <p>
+                        <button onclick="location.href='{% url 'update_product' product.id %}'">Update</button>
+                        <!--<a href="{% url 'update_product' product.id %}">Update</a> -->
+                        <!--<a href="{% url 'delete_product' product.id %}">Delete</a>-->
+                        <button onclick="location.href='{% url 'delete_product' product.id %}'">Delete</button>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

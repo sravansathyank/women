@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowerment Resources</title>
+    <style>
+     /* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/pic2.jpeg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: fadeInBackground 3s ease-in-out; /* Smooth background fade-in effect */
+}
+
+/* Fade-in background animation */
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Styling for the header */
+h1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    animation: slideDown 1.5s ease-in-out; /* Slide-down effect for header */
+}
+
+/* Slide-down animation for header */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Styling for "man" section */
+.man {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    animation: popUp 1.5s ease-in-out; /* Pop-up effect for "man" section */
+}
+
+/* Pop-up animation */
+@keyframes popUp {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Styling for empowerment content */
+.empowerment-content {
+    background-color: rgba(250, 250, 250, 0.6);
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 800px;
+    animation: fadeIn 2s ease-in; /* Fade-in effect for content */
+}
+
+/* Empowerment content heading */
+.empowerment-content h2 {
+    color: #2E8B57;
+    text-align: center;
+    margin-bottom: 15px;
+    animation: zoomIn 1.5s ease; /* Zoom-in effect for headings */
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Add hover effect for interactive feel */
+.empowerment-content:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+        button {
+            background-color: rgb(18, 19, 18);
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: rgb(113, 4, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Empowerment Resources</h1>
+
+    <div class="man">
+        <h2>Women Empowerment: A Path to Progress</h2>
+    </div>
+
+    <!-- Language Selection Buttons -->
+    <div style="text-align: center; margin: 20px;">
+        <button onclick="changeLanguage('english')">English</button>
+        <button onclick="changeLanguage('hindi')">Hindi</button>
+        <button onclick="changeLanguage('malayalam')">Malayalam</button>
+        <button onclick="changeLanguage('telugu')">Telugu</button>
+    </div>
+
+    <div class="empowerment-content" id="content">
+        <!-- Default content for English -->
+        <p>Women Empowerment: A Path to Progress 
+
+            Women empowerment is the cornerstone of a fair and inclusive society. It refers to equipping women with the rights, resources, and opportunities they need to realize their full potential and actively contribute to social, economic, and political development. Empowering women begins with education, which lays the foundation for confidence, knowledge, and independence. Equal access to employment, fair wages, and leadership opportunities fosters economic independence and breaks the cycle of inequality. Ensuring their safety through strong legal protections, promoting health and well-being, and challenging societal stereotypes further strengthens their position. Women empowerment is not just a women’s issue—it is a societal need. When women are empowered, families thrive, communities prosper, and nations move toward progress. Together, we can create a world where every woman can dream, achieve, and lead without limitations. </p>
+    </div>
+
+    <script>
+        const content = {
+            english: `
+                <div class="empowerment-content">
+                <p>Women empowerment refers to the process of enabling women to have equal access to opportunities, rights, and resources...</p>
+                <ul>
+            <li><strong>Education:</strong> Providing quality education for girls and women is crucial. Education equips them with the knowledge and skills needed to participate actively in decision-making, secure jobs, and improve their living standards.</li>
+            <li><strong>Economic Independence:</strong> Encouraging women to engage in entrepreneurship, providing equal pay, and ensuring access to financial services empower them economically, giving them the freedom to make choices.</li>
+            <li><strong>Legal Rights and Protection:</strong> Implementing laws that safeguard women from violence, harassment, and discrimination ensures their safety and dignity. Awareness campaigns about their rights help women stand against injustice.</li>
+            <li><strong>Leadership Opportunities:</strong> Promoting women’s representation in politics, corporate leadership, and community governance creates role models and ensures their perspectives shape decision-making.</li>
+            <li><strong>Health and Well-being:</strong> Accessible healthcare services, maternal care, and mental health support are essential for women to lead fulfilling lives. Addressing issues like gender-based violence and reproductive rights is also critical.</li>
+            <li><strong>Cultural Change:</strong> Challenging stereotypes, promoting gender-sensitive education, and encouraging men to share household responsibilities create an environment of equality.</li>
+            <li><strong>Support Systems:</strong> Building networks, mentorship programs, and women’s support groups foster confidence and mutual growth among women.</li>
+        </ul>
+        <p>Women empowerment is not just a women’s issue but a societal need. A world where women thrive leads to stronger families, communities, and economies. By collectively working towards equality, we pave the way for a brighter future for all.</p>
+                </div>
+            `,
+            hindi: `
+                <div class="empowerment-content">
+                    <p>महिला सशक्तिकरण का तात्पर्य महिलाओं को समान अवसर, अधिकार और संसाधनों तक समान पहुंच प्रदान करना है...</p>
+                        <ul>
+                            <li><strong>शिक्षा:</strong> लड़कियों और महिलाओं को गुणवत्तापूर्ण शिक्षा प्रदान करना अत्यावश्यक है। शिक्षा उन्हें निर्णय लेने, रोजगार सुरक्षित करने और जीवन स्तर सुधारने के लिए आवश्यक ज्ञान और कौशल प्रदान करती है।</li>
+                            <li><strong>आर्थिक स्वतंत्रता:</strong> महिलाओं को उद्यमिता में संलग्न करने, समान वेतन प्रदान करने और वित्तीय सेवाओं तक पहुंच सुनिश्चित करने से वे आर्थिक रूप से सशक्त बनती हैं, जिससे उन्हें निर्णय लेने की स्वतंत्रता मिलती है।</li>
+                            <li><strong>कानूनी अधिकार और संरक्षण:</strong> महिलाओं को हिंसा, उत्पीड़न और भेदभाव से बचाने वाले कानूनों को लागू करना उनकी सुरक्षा और गरिमा सुनिश्चित करता है। उनके अधिकारों के बारे में जागरूकता अभियान उन्हें अन्याय के खिलाफ खड़ा होने में मदद करते हैं।</li>
+                            <li><strong>नेतृत्व के अवसर:</strong> राजनीति, कॉर्पोरेट नेतृत्व, और सामुदायिक शासन में महिलाओं के प्रतिनिधित्व को बढ़ावा देना उदाहरण प्रस्तुत करता है और यह सुनिश्चित करता है कि निर्णय लेने में उनकी दृष्टिकोण शामिल हो।</li>
+                            <li><strong>स्वास्थ्य और कल्याण:</strong> सुलभ स्वास्थ्य सेवाएं, मातृत्व देखभाल और मानसिक स्वास्थ्य समर्थन महिलाओं को पूर्ण जीवन जीने के लिए आवश्यक हैं। लिंग आधारित हिंसा और प्रजनन अधिकारों जैसे मुद्दों को संबोधित करना भी महत्वपूर्ण है।</li>
+                            <li><strong>सांस्कृतिक परिवर्तन:</strong> रूढ़ियों को चुनौती देना, लिंग-संवेदनशील शिक्षा को बढ़ावा देना और पुरुषों को घरेलू जिम्मेदारियों को साझा करने के लिए प्रोत्साहित करना समानता का वातावरण बनाते हैं।</li>
+                            <li><strong>सहायक प्रणालियां:</strong> नेटवर्क, मेंटरशिप कार्यक्रम, और महिलाओं के समर्थन समूह आत्मविश्वास और आपसी विकास को बढ़ावा देते हैं।</li>
+                        </ul>
+                    <p>महिला सशक्तिकरण केवल महिलाओं का मुद्दा नहीं है, बल्कि यह समाज की आवश्यकता है। एक ऐसा विश्व जहां महिलाएं फलती-फूलती हैं, मजबूत परिवारों, समुदायों और अर्थव्यवस्थाओं की ओर ले जाता है। समानता की दिशा में सामूहिक रूप से काम करके, हम सभी के लिए एक उज्ज्वल भविष्य का निर्माण करते हैं।</p>
+
+                    </div>
+            `,
+            malayalam: `
+                <div class="empowerment-content">
+                    <p>സ്ത്രീ ശാക്തീകരണം സ്ത്രീകൾക്ക് തുല്യമായ അവസരങ്ങൾ, അവകാശങ്ങൾ, വിഭവങ്ങൾ എന്നിവ ലഭ്യമാക്കുന്നതിനുള്ള പ്രക്രിയയെയാണ് സൂചിപ്പിക്കുന്നത്, ഇത് അവർക്ക് സമൂഹത്തിൽ പൂർണമായും സംഭാവന ചെയ്യാൻ സാധ്യമാക്കുന്നു...</p>
+                    <ul>
+                        <li><strong>വിദ്യാഭ്യാസം:</strong> പെൺകുട്ടികൾക്കും സ്ത്രീകൾക്കും ഗുണമേൻമയുള്ള വിദ്യാഭ്യാസം നൽകുന്നത് അത്യന്താപേക്ഷിതമാണ്. വിദ്യാഭ്യാസം അവർക്ക് അറിയപ്പെടേണ്ട അറിവും കഴിവുകളും നൽകുകയും, തീരുമാനമെടുക്കലിൽ സജീവമായി പങ്കെടുക്കാൻ, ജോലികൾ ഉറപ്പാക്കാൻ, ജീവിതനിലവാരം മെച്ചപ്പെടുത്താൻ സഹായിക്കുകയും ചെയ്യുന്നു.</li>
+                        <li><strong>ആർത്ഥിക സ്വാതന്ത്ര്യം:</strong> സ്ത്രീകളെ സംരംഭകത്വത്തിലേർപ്പെടുത്തുക, തുല്യവേതനം നൽകുക, സാമ്പത്തിക സേവനങ്ങൾ ലഭ്യമാക്കുക എന്നിവ വഴി അവരെ സാമ്പത്തികമായി ശക്തമാക്കാം, അവരുടെ ഇഷ്ടാനുസരണം തീരുമാനങ്ങൾ എടുക്കാനുള്ള സ്വാതന്ത്ര്യം നൽകുന്നു.</li>
+                        <li><strong>നിയമപരമായ അവകാശങ്ങളും സംരക്ഷണവും:</strong> സ്ത്രീകളെ പീഡനങ്ങളിൽ നിന്ന് സംരക്ഷിക്കുന്ന നിയമങ്ങൾ നടപ്പാക്കുന്നത് അവരുടെ സുരക്ഷയും ഗൗരവവും ഉറപ്പാക്കുന്നു. അവകാശങ്ങളെക്കുറിച്ചുള്ള ബോധവൽക്കരണ കാമ്പെയിനുകൾ അവരെ അനീതിക്കെതിരെ നിൽക്കാൻ പ്രേരിപ്പിക്കുന്നു.</li>
+                        <li><strong>നേതൃത്വ അവസരങ്ങൾ:</strong> രാഷ്ട്രീയത്തിലും, കോർപ്പറേറ്റ് നേതൃത്വത്തിലും, സമൂഹഭരണത്തിലും സ്ത്രീകളുടെ പ്രതിനിധാനം പ്രോത്സാഹിപ്പിക്കുന്നത് മാതൃകകളായിത്തീരുകയും, അവരുടെ വീക്ഷണങ്ങൾ ഉൾപ്പെടുത്തുകയും ചെയ്യുന്നു.</li>
+                        <li><strong>ആരോഗ്യവും ക്ഷേമവും:</strong> സുലഭമായ ആരോഗ്യപരിചരണങ്ങൾ, മാതൃത്വ പരിചരണം, മാനസികാരോഗ്യ പിന്തുണ എന്നിവ സ്ത്രീകൾക്ക് സമ്പൂർണ ജീവിതം നയിക്കാൻ അനിവാര്യമാണ്. ലിംഗാധിഷ്ഠിത പീഡനം, പ്രജനനാവകാശങ്ങൾ എന്നിവയിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കണം.</li>
+                        <li><strong>സാംസ്കാരിക മാറ്റം:</strong> രൂഢിഗതികളെ ചോദ്യം ചെയ്യുക, ലിംഗബോധമുള്ള വിദ്യാഭ്യാസം പ്രോത്സാഹിപ്പിക്കുക, വീട്ടുജോലികൾ പങ്കിടാൻ പുരുഷന്മാരെ പ്രേരിപ്പിക്കുക എന്നിവ തുല്യതയുടെ അന്തരീക്ഷം സൃഷ്ടിക്കുന്നു.</li>
+                        <li><strong>പിന്തുണ സമ്പ്രദായങ്ങൾ:</strong> നെറ്റ്വർക്കുകൾ, മൻസൂറ്ഷിപ്പ് പ്രോഗ്രാമുകൾ, സ്ത്രീകളുടെ പിന്തുണ ഗ്രൂപ്പുകൾ ആത്മവിശ്വാസവും പരസ്പര വളർച്ചയും പ്രോത്സാഹിപ്പിക്കുന്നു.</li>
+                    </ul>
+                    <p>സ്ത്രീശാക്തീകരണം സ്ത്രീകളുടെ മാത്രം പ്രശ്നമല്ല, അത് സമൂഹത്തിന്റെ ആവശ്യമാണ്. സ്ത്രീകൾ മുന്നേറുന്ന ലോകം ശക്തമായ കുടുംബങ്ങൾക്കും സമൂഹങ്ങൾക്കും സാമ്പത്തിക നിലക്കുമായി നയിക്കുന്നു. തുല്യതയിലേക്ക് ഒരുമിച്ച് പ്രവർത്തിക്കുമ്പോൾ, എല്ലാവർക്കും പ്രകാശമുള്ള ഭാവി ഒരുക്കുന്നു.</p>
+
+                </div>
+            `,
+            telugu: `
+                <div class="empowerment-content">
+                    <p>మహిళా సాధికారత అనేది మహిళలకు సమాన అవకాశాలు, హక్కులు మరియు వనరుల్ని అందించడానికి...</p>
+                    <ul>
+                        <li><strong>శిక్షణ:</strong> బాలికలు మరియు మహిళలకు నాణ్యమైన విద్య అందించడం చాలా ముఖ్యం. విద్య వారికి నిర్ణయాలు తీసుకోవడంలో, ఉద్యోగాలు పొందడంలో మరియు జీవన ప్రమాణాలను మెరుగుపరచడంలో అవసరమైన జ్ఞానం మరియు నైపుణ్యాలను అందిస్తుంది.</li>
+                        <li><strong>ఆర్థిక స్వాతంత్ర్యం:</strong> మహిళలను వాణిజ్య రంగంలో పాల్గొనడానికి ప్రోత్సహించడం, సమాన వేతనం అందించడం మరియు ఆర్థిక సేవలకు ప్రాప్యతను నిర్ధారించడం ద్వారా ఆర్థికంగా వారిని బలంగా చేస్తుంది, వారిని తమకు నచ్చిన నిర్ణయాలు తీసుకోవడంలో స్వేచ్ఛను అందిస్తుంది.</li>
+                        <li><strong>చట్టపరమైన హక్కులు మరియు రక్షణ:</strong> మహిళలను హింస, వేధింపులు మరియు వివక్ష నుండి రక్షించే చట్టాలను అమలు చేయడం వారి భద్రత మరియు గౌరవాన్ని నిర్ధారిస్తుంది. వారి హక్కులపై అవగాహన కార్యక్రమాలు మహిళలను అన్యాయానికి వ్యతిరేకంగా నిలబడటానికి సహాయపడతాయి.</li>
+                        <li><strong>నేతృత్వ అవకాశాలు:</strong> రాజకీయాలలో, కార్పొరేట్ నాయకత్వంలో, మరియు సామాజిక పరిపాలనలో మహిళల ప్రాతినిధ్యాన్ని ప్రోత్సహించడం మంచి నిదర్శనాలు ఏర్పరుస్తుంది మరియు వారి అభిప్రాయాలు నిర్ణయాలలో భాగమవుతాయి.</li>
+                        <li><strong>ఆరోగ్యం మరియు సంక్షేమం:</strong> ఆరోగ్య సేవలు, ప్రసవ సంరక్షణ, మరియు మానసిక ఆరోగ్య మద్దతు మహిళలు సమగ్ర జీవితాన్ని గడపడానికి అవసరం. లింగ ఆధారిత హింస మరియు ప్రజన హక్కులపై దృష్టి పెట్టడం కూడా అవసరం.</li>
+                        <li><strong>సాంస్కృతిక మార్పు:</strong> సంప్రదాయాలను ప్రశ్నించడం, లింగ-సున్నితమైన విద్యను ప్రోత్సహించడం మరియు గృహ బాధ్యతలను పంచుకోవడానికి పురుషులను ప్రోత్సహించడం సమానత వాతావరణాన్ని సృష్టిస్తాయి.</li>
+                        <li><strong>మద్దతు వ్యవస్థలు:</strong> నెట్‌వర్క్‌లు, మెంటార్షిప్ ప్రోగ్రామ్‌లు మరియు మహిళల మద్దతు గ్రూప్‌లు మహిళలలో ఆత్మవిశ్వాసం మరియు పరస్పర వృద్ధిని ప్రోత్సహిస్తాయి.</li>
+                    </ul>
+                <p>మహిళా సాధికారత ఒక మహిళల సమస్య మాత్రమే కాదు, ఇది సమాజ అవసరం. మహిళలు అభివృద్ధి చెందే ప్రపంచం బలమైన కుటుంబాలు, సమాజాలు మరియు ఆర్థిక వ్యవస్థలను దారితీస్తుంది. సమానత కోసం కలిసికట్టుగా పని చేస్తే, మనందరికీ ప్రకాశవంతమైన భవిష్యత్‌ను సృష్టించగలుగుతాము.</p>
+
+                    </div>
+            `
+        };
+
+        function changeLanguage(language) {
+            document.getElementById('content').innerHTML = content[language];
+        }
+    </script>
+    <button onclick="location.href='{% url 'quote_page' %}'">Back</button>
+    <button onclick="location.href='{% url 'logout' %}'">Logout</button>
+</body>
+</html>

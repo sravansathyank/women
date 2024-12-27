@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Opportunities for Women</title>
+    <style>
+       /* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+    background-image: url("{% static 'images/pic2.jpeg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: fadeInBackground 3s ease-in-out; /* Smooth fade-in for the background */
+}
+
+/* Background fade-in animation */
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header styling with slide-down effect */
+header {
+    background-color: rgba(15, 15, 15, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    box-shadow: 0 4px 6px rgba(11, 11, 11, 0.5);
+    margin-bottom: 20px;
+    animation: slideDown 1.5s ease-in-out; /* Slide-down animation */
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Content styling with fade-in effect */
+.content {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(250, 250, 250, 0.75);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInContent 2s ease-in-out; /* Fade-in for the content */
+}
+
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* H2 styling with zoom-in effect */
+h2 {
+    background-color: rgba(15, 15, 15, 0.5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2em;
+    box-shadow: 0 4px 6px rgba(11, 11, 11, 0.5);
+    margin-bottom: 20px;
+    animation: zoomIn 1.5s ease-in; /* Zoom-in effect */
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Paragraph styling with subtle hover effect */
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 15px 0;
+    text-align: justify;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+p:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    color: #555;
+}
+
+/* List styling */
+ul {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-left: 40px;
+    animation: fadeInList 2s ease-in; /* Fade-in effect for lists */
+}
+
+@keyframes fadeInList {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+li {
+    margin-bottom: 10px;
+    animation: fadeInItem 0.5s ease-in; /* Individual item fade-in */
+}
+
+@keyframes fadeInItem {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Interactive hover effect for content block */
+.content:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+        button {
+            background-color: rgb(18, 19, 18);
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: rgb(113, 4, 4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+            color: #777;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        Women's Job Opportunities
+    </header>
+
+    <div class="content">
+        <h2>Empowering Women in the Workforce</h2>
+        <p>
+            Women across the globe are making remarkable strides in all industries, from tech to healthcare, finance to education. However, despite the progress, there are still challenges women face in accessing equal job opportunities. The job market for women is expanding, with an increasing number of companies prioritizing diversity and gender inclusion in their workforce.
+        </p>
+        <p>
+            Here are a few key reasons why women should explore job opportunities:
+        </p>
+        <ul>
+            <li><strong>Equal Opportunities:</strong> Many organizations are now actively seeking to employ women in roles traditionally dominated by men, ensuring diversity in every aspect of business.</li>
+            <li><strong>Work-Life Balance:</strong> Companies are offering more flexible working hours, remote work options, and family-friendly benefits to help women balance their professional and personal lives.</li>
+            <li><strong>Career Growth:</strong> The corporate world is increasingly providing mentorship and leadership development programs aimed specifically at women to help them climb the career ladder.</li>
+            <li><strong>Skills Development:</strong> Women can find career opportunities that support continuous learning and upskilling, with a growing number of companies investing in talent development for women.</li>
+        </ul>
+
+        <p>
+            If you're ready to take the next step in your career, explore some of the best job opportunities available for women.
+        </p>
+        <button onclick="location.href='{% url 'quote_page' %}'">Back</button>
+        <button onclick="window.location.href='https://in.jobsora.com/jobs-for-women?utm_source=google&utm_medium=cpc&utm_campaign=17611051192-138666196496&utm_term=for%20women%20jobs&utm_content=g&gad_source=1&gclid=CjwKCAiAyJS7BhBiEiwAyS9uNTQWL01zn41S_zHN_wyUmqzf6aAZZdVYbovg7mX5ejevrLgsLNicmhoCh2sQAvD_BwE'">
+            Let's Start For A Job Search
+        </button>
+        
+    </div>
+
+    <footer>
+        &copy; 2024 Women's Empowerment - All Rights Reserved
+    </footer>
+
+</body>
+</html>

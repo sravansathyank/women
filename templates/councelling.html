@@ -1,0 +1,219 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counseling Classes</title>
+    <style>
+        /* Basic styling */
+        /* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/pic2.jpeg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: fadeInBackground 3s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* Background fade-in animation */
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Container styling with fade-in and slide effect */
+.container {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 50px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideInContainer 2s ease-in-out; /* Slide-in animation */
+}
+
+@keyframes slideInContainer {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button styling with hover and pulse effect */
+.options button {
+    background-color: rgb(8, 8, 8);
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.options button:hover {
+    background-color: rgb(109, 21, 6);
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Button pulse animation */
+.options button:active {
+    animation: buttonPulse 0.3s ease-out;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Section styling with fade-in effect */
+.video-list, .payment, .counselors-list, .code-entry {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInSection 1.5s ease-in-out;
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Video styling with hover effect */
+.video-list iframe {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video-list iframe:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+    border-color: rgba(109, 21, 6, 0.8);
+}
+
+/* Interactive hover effect for additional sections */
+.payment:hover, .counselors-list:hover, .code-entry:hover {
+    transform: scale(1.03); /* Slight zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Counseling Option</h1>
+        
+        <!-- Options to choose between Face to Face and Watch Best Resources -->
+        <div class="options">
+            <button onclick="location.href='{% url 'quote_page' %}'">Back</button>
+            <button onclick="chooseOption('faceToFace')">Face to Face Counseling</button>
+            <button onclick="chooseOption('watchSources')">Watch Best Resources</button>
+        </div>
+
+        <!-- Video list for "Watch Best Resources" -->
+        <div id="video-list" class="video-list">
+            <h2>Best Resources Videos</h2>
+            <div>
+                <iframe width="660" height="371" src="https://www.youtube.com/embed/O362PbQk4mo" title="How to Become a Women's Empowerment Coach" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+                <iframe width="660" height="371" src="https://www.youtube.com/embed/9ZQOUmQ562o" title="Becoming an empowered woman | Paula Lacobara | TEDxCumbernauldWomen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+                <iframe width="660" height="371" src="https://www.youtube.com/embed/YKDt4TxZynk" title="സ്ത്രീ ശാക്തീകരണം - Women Empowerment Malayalam Speech by Gopika Sunil | Carmel College Mala" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div>
+                <iframe width="660" height="371" src="https://www.youtube.com/embed/bE2NUEKq_KE" title="Mentally Strong Kaise Bane? The Best Motivational Speech By Suhani Shah || PART 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- Payment and counselors list for Face to Face -->
+        <div id="payment" class="payment">
+            <h2>Please make a payment to proceed</h2>
+            <p>For payment, please use the UPI ID: <strong>sravansathyan00@okicici</strong></p>
+            <button onclick="makePayment()">Make Payment</button>
+        </div>
+
+        <!-- Code Entry after Payment -->
+        <div id="code-entry" class="code-entry">
+            <h2>Enter the code sent by the receiver</h2>
+            <input type="text" id="code-input" placeholder="Enter Code">
+            <button onclick="validateCode()">Submit Code</button>
+        </div>
+
+        <!-- Counselors list -->
+        <div id="counselors-list" class="counselors-list">
+            <h2>Available Counselors:</h2>
+            <ul>
+                <li>Dr. Jane Doemi - 10:00 AM to 12:00 PM   <div>Phone Number: 9400954105</div></li>
+                <li>Dr. John Smith - 12:00 PM to 4:00 PM    <div>Phone Number: 9400954104</div></li>
+                <li>Dr. EmilyBrown - 11:00 AM to 1:00 PM    <div>Phone Number: 9400954103</div></li>
+                <!-- Add more counselors as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Function to choose between options
+        function chooseOption(option) {
+            if(option === 'faceToFace') {
+                document.getElementById('payment').style.display = 'block';  // Show payment options
+                document.getElementById('counselors-list').style.display = 'none'; // Hide counselors initially
+                document.getElementById('video-list').style.display = 'none'; // Hide videos
+                document.getElementById('code-entry').style.display = 'none'; // Hide code entry initially
+            } else if(option === 'watchSources') {
+                document.getElementById('video-list').style.display = 'block'; // Show videos
+                document.getElementById('payment').style.display = 'none'; // Hide payment
+                document.getElementById('counselors-list').style.display = 'none'; // Hide counselors
+                document.getElementById('code-entry').style.display = 'none'; // Hide code entry
+            }
+        }
+
+        // Function to simulate payment and show code entry
+        function makePayment() {
+            alert("Payment Successful! Please enter the code sent to you.");
+            document.getElementById('code-entry').style.display = 'block'; // Show code entry
+            document.getElementById('payment').style.display = 'none'; // Hide payment
+        }
+
+        // Function to validate the entered code
+        function validateCode() {
+            var code = document.getElementById('code-input').value;
+            if(code === "689456") {
+                document.getElementById('counselors-list').style.display = 'block'; // Show counselors list
+                document.getElementById('code-entry').style.display = 'none'; // Hide code entry
+            } else {
+                alert("Incorrect code. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>

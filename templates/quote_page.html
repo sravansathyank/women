@@ -1,0 +1,374 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Women Empowerment Quotes</title>
+    <style>
+   /* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'images/women3.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    animation: fadeInBackground 3s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Header styling with animation */
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    animation: slideInHeader 2s ease-out;
+}
+
+@keyframes slideInHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Secondary header styling */
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 30px;
+    color: rgb(241, 247, 242);
+}
+
+/* Introduction section styling */
+.intro {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInSection 1.5s ease-in-out;
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for paragraphs */
+.intro p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Styling for the quotes list */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul li {
+    font-size: 1.5em;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling with hover effects */
+button, a {
+    background-color: rgb(15, 16, 15);
+    color: white;
+    padding: 10px 20px;
+    margin: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, a:hover {
+    background-color: rgb(183, 0, 43);
+    transform: scale(1.05);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Chatbox styling with animations */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: slideInChatbox 0.5s ease-in-out;
+}
+
+@keyframes slideInChatbox {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Chatbox header */
+.chatbox-header {
+    background-color: rgb(19, 20, 19);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+/* Chat button */
+#open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(8, 11, 8);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Chat content */
+.chat-content {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Chatbox input container */
+.input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+}
+
+.input-container input {
+    width: 80%;
+    padding: 10px;
+    border: none;
+    border-radius: 0 0 0 10px;
+}
+
+.input-container button {
+    width: 20%;
+    padding: 10px;
+    background-color: rgb(14, 15, 14);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 0 10px 0;
+}
+
+/* Chat messages */
+.message {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.bot-message {
+    background-color: rgb(17, 19, 17);
+    text-align: left;
+}
+
+.user-message {
+    background-color: rgb(19, 30, 19);
+    text-align: right;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+
+    <!-- Introduction section -->
+    <div class="intro">
+        <p>
+            Women empowerment is about giving women the strength, support, and resources they need to live fulfilling lives and contribute meaningfully to society. Here, we have gathered inspirational quotes from powerful women throughout history to motivate and empower you to reach your full potential. Let these words guide you toward your goals and remind you of your incredible worth and strength.
+        </p>
+    </div>
+
+    <!-- Quotes section -->
+    <h2>Quotes:</h2>
+    <ul>
+        {% for quote in quotes %}
+            <li>{{ quote }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Action Buttons -->
+    <div style="text-align: center;">
+        <button onclick="location.href='{% url 'file_complaint' %}'">File Complaint</button>
+        <button onclick="location.href='{% url 'empowerment_resources' %}'">How to Get Empowered</button>
+        <button onclick="location.href='{% url 'job_oppurtunity' %}'">Job Opportunities for Women</button>
+        <button onclick="location.href='{% url 'councelling' %}'">Counseling Classes</button>
+        <button onclick="location.href='{% url 'sell_product' %}'">Sell Product</button>
+ <!-- New Button -->
+        
+    </div>
+
+    <!-- Logout link -->
+    <div style="text-align: center;">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+    
+    <!-- Button to toggle the chatbot -->
+    <button id="open-chat-btn" onclick="toggleChat()">💬</button>
+
+    <!-- Chatbox Structure -->
+    <div id="chatbox" class="chatbox">
+        <div class="chatbox-header">
+            <span>Chat with Us</span>
+        </div>
+        <div id="chat-content" class="chat-content">
+            <div class="message bot-message">
+                Hello! How can I assist you today? Type "Help me" to get started.
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the chatbot visibility
+        const chatbox = document.querySelector('.chatbox');
+const openChatBtn = document.querySelector('#open-chat-btn');
+const chatboxHeader = document.querySelector('.chatbox-header');
+
+// Show the chatbox when the "Open Chat" button is clicked
+openChatBtn.addEventListener('click', () => {
+    chatbox.style.display = 'flex';
+    openChatBtn.style.display = 'none'; // Hide the open button when chatbox is visible
+});
+
+// Toggle the chatbox visibility when the header is clicked
+chatboxHeader.addEventListener('click', () => {
+    chatbox.style.display = 'none';
+    openChatBtn.style.display = 'block'; // Show the open button when chatbox is hidden
+});
+        function toggleChat() {
+            var chatbox = document.getElementById('chatbox');
+            if (chatbox.style.display === "none" || chatbox.style.display === "") {
+                chatbox.style.display = "flex"; // Show the chatbox
+            } else {
+                chatbox.style.display = "none"; // Hide the chatbox
+            }
+        }
+
+        // Function to send user message and display bot response
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value.trim();
+            if (userInput) {
+                var chatContent = document.getElementById('chat-content');
+                
+                // Display the user's message
+                var userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('message', 'user-message');
+                userMessageDiv.innerHTML = userInput;
+                chatContent.appendChild(userMessageDiv);
+
+                // Clear input field
+                document.getElementById('user-input').value = '';
+
+                // Simulate bot response
+                setTimeout(function() {
+                    var botResponse = '';
+
+                    // Check the user input
+                    if (userInput.toLowerCase() === 'help me') {
+                        botResponse = 'This page can be used to file a complaint, attend counseling classes, or find jobs. What are you looking for?';
+                    } else if (userInput.toLowerCase() === 'file complaint') {
+                        botResponse = 'Click on "File Complaint".';
+                    } else if (userInput.toLowerCase() === 'counseling') {
+                        botResponse = 'Click on "Attend Counseling Classes".';
+                    } else if (userInput.toLowerCase() === 'find jobs' ) {
+                        botResponse = 'Click on "Find Job Opportunities".';
+                    } else {
+                        botResponse = 'Sorry, I didn\'t understand that. Can you please rephrase?';
+                    }
+
+                    var botMessageDiv = document.createElement('div');
+                    botMessageDiv.classList.add('message', 'bot-message');
+                    botMessageDiv.innerHTML = botResponse;
+                    chatContent.appendChild(botMessageDiv);
+
+                    // Scroll to the latest message
+                    chatContent.scrollTop = chatContent.scrollHeight;
+                }, 1000);
+            }
+        }
+    </script>
+    <!-- Footer -->
+    <footer>
+        Empowering women for a brighter tomorrow.
+    </footer>
+</body>
+</html>
